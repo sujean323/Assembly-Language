@@ -1,0 +1,64 @@
+資工三 409410114 周述君
+
+Q1: 請描述自己安裝與執行ARM software development tool的過程
+A1: 
+1. Linux下已經編譯好的arm的跨平台開發工具下載：arm-cross-toolchain-linux-64-20.4.gcc10.tar.gz
+2. 安裝套件
+3. 解壓縮把檔案放入bin
+4. 利用cross compiler編譯
+
+Q2: 請說明hw1.o與hw1.exe的差別? 可能是什麼原因造成的?
+A2:
+hw1.o: 目的檔案，檔案較.exe檔小，920bytes，但不能直接執行
+hw1.exe: 執行檔，檔案較.o檔大，423.084kb，可以直接執行
+
+Q3: sample_O0.o與sample_O3.o檔案大小的差別? 可能是什麼原因造成的?
+A3: 
+sample_O0.o: 1012bytes
+sample_O3.o: 1016bytes
+-O3有優化，-O0沒有
+優化內容
+l -fdefer-pop：延遲棧的彈出時間。
+l -fmerge-constants：嘗試橫跨編譯單元合併同樣的常量
+l -fthread-jumps：如果某個跳轉分支優化。
+l -floop-optimize：執行迴圈優化，簡化判斷迴圈的條件。
+l -fif-conversion, l -fif-conversion2：條件跳轉速度優化。
+l -fdelayed-branch：根據指令週期時間重新安排指令。
+l -fguess-branch-probability：編譯器採用隨機模式猜測分支被執行的可能性。 
+l -fcprop-registers：暫存器使用優化。 
+l -fforce-mem：記憶體訪問優化。
+l -foptimize-sibling-calls：優化相關的以及末尾遞迴的呼叫。
+l -fstrength-reduce：對迴圈執行優化並且刪除迭代變數。 
+l -fcse-follow-jumps：公用子表示式消元優化。 
+l -fcse-skip-blocks：根據特定條件，跟隨著cse跳轉整個的blocks 
+l -frerun-cse-after-loop：在迴圈優化完成後，重新進行公用子表示式消元操作。 
+l -frerun-loop-opt：兩次執行迴圈優化 。
+l -fgcse：執行全域性公用子表示式消除pass。
+l-fgcse-lm：全域性公用子表示式消除將試圖移動那些僅僅被自身儲存kill的裝載操作的位置。
+l -fgcse-sm：當一個儲存操作pass在一個全域性公用子表示式消除的後面，這個pass將試圖將store操作轉移到迴圈外面去。
+l -fgcse-las：全域性公用子表示式store和 load優化。
+l-fdelete-null-pointer-checks：識別並排出無用的對空指標的檢查。
+l -fexpensive-optimizations：進行一些從編譯的角度來說代價高昂的優化
+l -fregmove：編譯器試圖重新分配move指令。
+l -fschedule-insns：編譯器嘗試重新排列指令。
+l -fschedule-insns2：與-fschedule-insns相似。
+l -fsched-interblock：跨越指令塊排程指令。 
+l -fsched-spec-load：允許一些load指令進行一些投機性的動作。
+l -fcaller-saves：使被call呼叫的value可以被分配給暫存器。
+l -fpeephole2：允許計算機進行特定的觀察孔優化
+l -freorder-blocks：在編譯函式的時候重新安排基本的塊。
+l -freorder-functions：在編譯函式的時候重新安排基本的塊。
+l -fstrict-aliasing：這種技術強制實行高階語言的嚴格變數規則。 
+l -funit-at-a-time：在程式碼生成前，先分析整個的組合語言程式碼。
+l -falign-functions：使函式對準記憶體中特定邊界的開始位置。 
+l -falign-jumps：對齊分支程式碼到2的n次方邊界。
+l -falign-loops：對齊迴圈到2的n次冪邊界。
+l -falign-labels：對齊分支到2的n次冪邊界。
+l -fcrossjumping：組合分散在程式各處的相同程式碼。 
+l -finline-functions：內聯簡單的函式到被呼叫函式中。
+l -fweb：構建用於儲存變數的偽暫存器網路。 
+l -frename-registers：在暫存器分配優化，來避免預定程式碼中的虛假依賴。
+l -funswitch-loops：將無變化的條件分支移出迴圈。
+
+————————————————
+參考資料 https://blog.csdn.net/xiaoting451292510/article/details/104977828
