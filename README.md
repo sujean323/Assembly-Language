@@ -23,3 +23,4 @@ Assembly Language
 - Output: BCD code
   - a1, b1, r1, r2
 ## homework 7
+使用SIMD intrinsic function來做計算：將主要運算 (紅色方框) 的程式碼，使用SIMD intrinsic function，改寫成SIMD的版本。
